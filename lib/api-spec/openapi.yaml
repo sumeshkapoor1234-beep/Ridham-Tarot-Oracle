@@ -10,6 +10,10 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: tarot
+    description: Tarot deck and reading operations
+  - name: developer
+    description: Private reading results for the developer
 paths:
   /healthz:
     get:
@@ -24,6 +28,109 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /tarot/config:
+    get:
+      operationId: getTarotConfig
+      tags: [tarot]
+      summary: Get the tarot deck and available spreads
+      responses:
+        "200":
+          description: Tarot configuration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TarotConfig"
+  /readings:
+    post:
+      operationId: createReading
+      tags: [tarot]
+      summary: Draw and save a tarot reading
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReadingInput"
+      responses:
+        "201":
+          description: Saved reading
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reading"
+        "400":
+          description: Invalid reading request
+    get:
+      operationId: listReadings
+      tags: [developer]
+      summary: List saved readings for the developer
+      parameters:
+        - in: query
+          name: search
+          schema:
+            type: string
+            maxLength: 160
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+      responses:
+        "200":
+          description: Saved readings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Reading"
+        "401":
+          description: Sign in required
+        "403":
+          description: Developer access is not configured for this account
+  /readings/summary:
+    get:
+      operationId: getReadingSummary
+      tags: [developer]
+      summary: Get reading totals and trends for the developer
+      responses:
+        "200":
+          description: Reading summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReadingSummary"
+        "401":
+          description: Sign in required
+        "403":
+          description: Developer access is not configured for this account
+  /readings/{id}:
+    get:
+      operationId: getReading
+      tags: [developer]
+      summary: Get one saved reading for the developer
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Saved reading
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reading"
+        "401":
+          description: Sign in required
+        "403":
+          description: Developer access is not configured for this account
+        "404":
+          description: Reading not found
 components:
   schemas:
     HealthStatus:
@@ -33,4 +140,170 @@ components:
           type: string
       required:
         - status
+    TarotSpread:
+      type: object
+      properties:
+        id:
+          type: string
+          enum: ["1", "2", "3", "4", "5"]
+        name:
+          type: string
+        positions:
+          type: array
+          items:
+            type: string
+      required: [id, name, positions]
+    TarotCard:
+      type: object
+      properties:
+        name:
+          type: string
+        category:
+          type: string
+          enum: ["Major Arcana", "Minor Arcana"]
+        element:
+          type: string
+          enum: [Fire, Water, Air, Earth]
+        zodiac:
+          type: string
+        upright:
+          type: string
+        reversed:
+          type: string
+        affirmation:
+          type: string
+      required: [name, category, element, zodiac, upright, reversed, affirmation]
+    TarotConfig:
+      type: object
+      properties:
+        spreads:
+          type: array
+          items:
+            $ref: "#/components/schemas/TarotSpread"
+        cards:
+          type: array
+          items:
+            $ref: "#/components/schemas/TarotCard"
+      required: [spreads, cards]
+    ReadingInput:
+      type: object
+      properties:
+        querentName:
+          type: string
+          minLength: 1
+          maxLength: 100
+        question:
+          type: string
+          maxLength: 1000
+        spreadId:
+          type: string
+          enum: ["1", "2", "3", "4", "5"]
+        drawMode:
+          type: string
+          enum: [automatic, manual]
+        selectedCards:
+          type: array
+          items:
+            type: string
+      required: [querentName, question, spreadId, drawMode]
+    ReadingCard:
+      type: object
+      properties:
+        position:
+          type: string
+        cardName:
+          type: string
+        orientation:
+          type: string
+          enum: [Upright, Reversed]
+        category:
+          type: string
+          enum: ["Major Arcana", "Minor Arcana"]
+        element:
+          type: string
+          enum: [Fire, Water, Air, Earth]
+        zodiac:
+          type: string
+        interpretation:
+          type: string
+        affirmation:
+          type: string
+      required:
+        - position
+        - cardName
+        - orientation
+        - category
+        - element
+        - zodiac
+        - interpretation
+        - affirmation
+    ElementSummary:
+      type: object
+      properties:
+        Fire:
+          type: integer
+        Water:
+          type: integer
+        Air:
+          type: integer
+        Earth:
+          type: integer
+      required: [Fire, Water, Air, Earth]
+    Reading:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        querentName:
+          type: string
+        question:
+          type: string
+        spreadId:
+          type: string
+        spreadName:
+          type: string
+        drawMode:
+          type: string
+          enum: [automatic, manual]
+        cards:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReadingCard"
+        majorCount:
+          type: integer
+        minorCount:
+          type: integer
+        elements:
+          $ref: "#/components/schemas/ElementSummary"
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - querentName
+        - question
+        - spreadId
+        - spreadName
+        - drawMode
+        - cards
+        - majorCount
+        - minorCount
+        - elements
+        - createdAt
+    ReadingSummary:
+      type: object
+      properties:
+        totalReadings:
+          type: integer
+        readingsToday:
+          type: integer
+        topSpread:
+          type: ["string", "null"]
+        lastReadingAt:
+          type: ["string", "null"]
+          format: date-time
+        cardsDrawn:
+          type: integer
+      required: [totalReadings, readingsToday, topSpread, lastReadingAt, cardsDrawn]
 

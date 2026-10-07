@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Ridham’s Mystic Tarot Oracle"
+description = "A tarot reading app with a seeker-facing reading experience and a protected developer dashboard for reviewing saved readings. Includes five spreads, a full 78-card deck, and upright or reversed interpretations."
+version = "1.0.0"
+id = "artifacts/ridham-tarot"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20266
+
+[services.development]
+run = "pnpm --filter @workspace/ridham-tarot run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ridham-tarot", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ridham-tarot/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20266"
+BASE_PATH = "/"

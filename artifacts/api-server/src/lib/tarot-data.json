@@ -1,0 +1,758 @@
+{
+  "spreads": [
+    {
+      "id": "1",
+      "name": "Single Card (Daily Focus)",
+      "positions": [
+        "Core Insight & Daily Focus"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Past, Present, Future",
+      "positions": [
+        "Past Foundations",
+        "Present Energy",
+        "Future Trajectory"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Mind, Body, Spirit Alignment",
+      "positions": [
+        "Mental State (Mind)",
+        "Physical Reality (Body)",
+        "Spiritual Path (Spirit)"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Situation, Obstacle, Outcome",
+      "positions": [
+        "Current Situation",
+        "Primary Obstacle",
+        "Likely Outcome"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Celtic Cross Spread (10 Cards)",
+      "positions": [
+        "1. Present Situation",
+        "2. Immediate Challenge",
+        "3. Distant Past / Foundation",
+        "4. Recent Past",
+        "5. Higher Purpose / Best Potential",
+        "6. Near Future",
+        "7. Your Power / Self-Image",
+        "8. External Environment & Influences",
+        "9. Hopes and Fears",
+        "10. Final Outcome"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "name": "0. The Fool",
+      "category": "Major Arcana",
+      "element": "Air",
+      "zodiac": "Uranus",
+      "upright": "New beginnings, innocence, spontaneity, free spirit, leaps of faith.",
+      "reversed": "Recklessness, risk-taking, hesitation, bad judgment, foolish delay.",
+      "affirmation": "I step into the unknown with an open heart and complete trust."
+    },
+    {
+      "name": "I. The Magician",
+      "category": "Major Arcana",
+      "element": "Air",
+      "zodiac": "Mercury",
+      "upright": "Manifestation, resourcefulness, power, inspired action, skill.",
+      "reversed": "Illusion, manipulation, wasted talent, trickery, poor planning.",
+      "affirmation": "I have all the tools and power necessary to manifest my vision."
+    },
+    {
+      "name": "II. The High Priestess",
+      "category": "Major Arcana",
+      "element": "Water",
+      "zodiac": "Moon",
+      "upright": "Intuition, sacred knowledge, divine feminine, subconscious mind.",
+      "reversed": "Secrets, disconnected from intuition, surface-level focus, repression.",
+      "affirmation": "I trust my inner wisdom and honor the secrets of my soul."
+    },
+    {
+      "name": "III. The Empress",
+      "category": "Major Arcana",
+      "element": "Earth",
+      "zodiac": "Venus",
+      "upright": "Femininity, beauty, nature, nurturing, abundance, fertility.",
+      "reversed": "Creative block, dependence, smothering, insecurity, neglect.",
+      "affirmation": "Abundance flows through me and surrounds my life."
+    },
+    {
+      "name": "IV. The Emperor",
+      "category": "Major Arcana",
+      "element": "Fire",
+      "zodiac": "Aries",
+      "upright": "Authority, structure, control, father figure, solid foundation.",
+      "reversed": "Tyranny, rigidity, lack of discipline, loss of control, dominance.",
+      "affirmation": "I build my life on structure, discipline, and stable foundations."
+    },
+    {
+      "name": "V. The Hierophant",
+      "category": "Major Arcana",
+      "element": "Earth",
+      "zodiac": "Taurus",
+      "upright": "Spiritual wisdom, tradition, institutions, conformity, beliefs.",
+      "reversed": "Rebellion, unconventionality, new approaches, hypocrisy.",
+      "affirmation": "I honor truth and live according to my core values."
+    },
+    {
+      "name": "VI. The Lovers",
+      "category": "Major Arcana",
+      "element": "Air",
+      "zodiac": "Gemini",
+      "upright": "Love, harmony, relationships, values alignment, meaningful choices.",
+      "reversed": "Disharmony, imbalance, misaligned values, bad decisions, conflict.",
+      "affirmation": "I choose relationships rooted in love, alignment, and truth."
+    },
+    {
+      "name": "VII. The Chariot",
+      "category": "Major Arcana",
+      "element": "Water",
+      "zodiac": "Cancer",
+      "upright": "Control, willpower, success, action, determination, victory.",
+      "reversed": "Lack of control, opposition, lack of direction, aggression.",
+      "affirmation": "I harness my energy and drive forward toward victory."
+    },
+    {
+      "name": "VIII. Strength",
+      "category": "Major Arcana",
+      "element": "Fire",
+      "zodiac": "Leo",
+      "upright": "Courage, persuasion, influence, compassion, inner power.",
+      "reversed": "Self-doubt, raw emotion, vulnerability, low energy, weakness.",
+      "affirmation": "My true strength lies in compassion, patience, and courage."
+    },
+    {
+      "name": "IX. The Hermit",
+      "category": "Major Arcana",
+      "element": "Earth",
+      "zodiac": "Virgo",
+      "upright": "Soul-searching, introspection, solitude, inner guidance, truth.",
+      "reversed": "Loneliness, isolation, paranoia, withdrawal, exclusion.",
+      "affirmation": "In quiet solitude, I find the light of my inner wisdom."
+    },
+    {
+      "name": "X. Wheel of Fortune",
+      "category": "Major Arcana",
+      "element": "Fire",
+      "zodiac": "Jupiter",
+      "upright": "Good luck, karma, life cycles, destiny, pivotal turning point.",
+      "reversed": "Bad luck, resistance to change, breaking negative cycles.",
+      "affirmation": "I embrace the ever-changing flow of life and trust destiny."
+    },
+    {
+      "name": "XI. Justice",
+      "category": "Major Arcana",
+      "element": "Air",
+      "zodiac": "Libra",
+      "upright": "Justice, fairness, truth, cause and effect, legal matters.",
+      "reversed": "Unfairness, lack of accountability, dishonesty, bias, blame.",
+      "affirmation": "I act with integrity, equity, and absolute honesty."
+    },
+    {
+      "name": "XII. The Hanged Man",
+      "category": "Major Arcana",
+      "element": "Water",
+      "zodiac": "Neptune",
+      "upright": "Pause, surrender, letting go, gaining new perspectives.",
+      "reversed": "Delays, resistance, stalling, unnecessary sacrifice, stagnation.",
+      "affirmation": "I release control and allow new perspectives to enlighten me."
+    },
+    {
+      "name": "XIII. Death",
+      "category": "Major Arcana",
+      "element": "Water",
+      "zodiac": "Scorpio",
+      "upright": "Endings, change, radical transformation, transition, rebirth.",
+      "reversed": "Fear of change, holding on, stagnancy, decay, resistance.",
+      "affirmation": "I gracefully release the old to make room for transformative new energy."
+    },
+    {
+      "name": "XIV. Temperance",
+      "category": "Major Arcana",
+      "element": "Fire",
+      "zodiac": "Sagittarius",
+      "upright": "Balance, moderation, patience, purpose, inner harmony.",
+      "reversed": "Imbalance, excess, self-healing needed, hastiness, friction.",
+      "affirmation": "I bring harmony, patience, and balance to every situation."
+    },
+    {
+      "name": "XV. The Devil",
+      "category": "Major Arcana",
+      "element": "Earth",
+      "zodiac": "Capricorn",
+      "upright": "Shadow self, attachment, addiction, restriction, materialism.",
+      "reversed": "Freedom, release, restoring control, breaking chains.",
+      "affirmation": "I reclaim my personal power and break free from toxic bindings."
+    },
+    {
+      "name": "XVI. The Tower",
+      "category": "Major Arcana",
+      "element": "Fire",
+      "zodiac": "Mars",
+      "upright": "Sudden change, upheaval, chaos, revelation, awakening.",
+      "reversed": "Disaster avoided, delaying the inevitable, fear of collapse.",
+      "affirmation": "Breakthroughs follow breakdown; I rebuild on solid truth."
+    },
+    {
+      "name": "XVII. The Star",
+      "category": "Major Arcana",
+      "element": "Air",
+      "zodiac": "Aquarius",
+      "upright": "Hope, faith, purpose, renewal, inspiration, spiritual peace.",
+      "reversed": "Faithlessness, despair, self-doubt, discouragement, apathy.",
+      "affirmation": "Hope illuminates my pathway, filling me with peace and trust."
+    },
+    {
+      "name": "XVIII. The Moon",
+      "category": "Major Arcana",
+      "element": "Water",
+      "zodiac": "Pisces",
+      "upright": "Illusion, fear, anxiety, subconscious mind, intuition, mystery.",
+      "reversed": "Release of fear, repressed emotion, clarity, uncovering truth.",
+      "affirmation": "I look past shadows and illusions to embrace clarity."
+    },
+    {
+      "name": "XIX. The Sun",
+      "category": "Major Arcana",
+      "element": "Fire",
+      "zodiac": "Sun",
+      "upright": "Positivity, fun, warmth, success, vitality, joy, brilliance.",
+      "reversed": "Temporary clouds, sadness, overly optimistic, inner child work.",
+      "affirmation": "Joy, brilliance, and vital success illuminate my life."
+    },
+    {
+      "name": "XX. Judgement",
+      "category": "Major Arcana",
+      "element": "Fire",
+      "zodiac": "Pluto",
+      "upright": "Judgement, rebirth, inner calling, absolution, awakening.",
+      "reversed": "Self-doubt, harsh criticism, ignoring the call, regret.",
+      "affirmation": "I step into my higher calling without fear or self-criticism."
+    },
+    {
+      "name": "XXI. The World",
+      "category": "Major Arcana",
+      "element": "Earth",
+      "zodiac": "Saturn",
+      "upright": "Completion, integration, accomplishment, travel, fulfillment.",
+      "reversed": "Incompletion, seeking closure, short-cuts, unfinished business.",
+      "affirmation": "I celebrate my journey, honoring the completion of this chapter."
+    },
+    {
+      "name": "Ace of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "New raw potential and a powerful fresh beginning in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Delayed start or missed opportunity regarding ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I welcome new opportunities with enthusiasm."
+    },
+    {
+      "name": "Two of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Balance, partnership, and essential choices concerning passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Imbalance, indecision, or misaligned priorities in ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I make balanced decisions aligned with my truth."
+    },
+    {
+      "name": "Three of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Growth, teamwork, and early expansion in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Lack of progress, miscommunication, or delays in ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "Collaboration and vision fuel my ongoing growth."
+    },
+    {
+      "name": "Four of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Solid stability, security, and firm foundations in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Stagnation, rigidity, or fear of losing control over ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I rest securely upon the stable foundations I build."
+    },
+    {
+      "name": "Five of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Conflict, temporary challenge, or loss regarding passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Resolution, moving past hardship, and recovery in ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I grow stronger through every challenge I face."
+    },
+    {
+      "name": "Six of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Harmony, success, generosity, and progress in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Standing still, selfishness, or delayed recognition in ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I share my success and accept help when needed."
+    },
+    {
+      "name": "Seven of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Strategic planning, assessment, and perseverance in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Impatience, self-doubt, or deceptive shortcuts regarding ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "Patience and strategy guide my long-term effort."
+    },
+    {
+      "name": "Eight of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Mastery, focused movement, and rapid progress in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Frustration, lack of effort, or energetic delays in ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "My dedicated focus yields expertise and momentum."
+    },
+    {
+      "name": "Nine of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Fruitful realization, self-reliance, and near completion in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Defeat, dissatisfaction, fatigue, or stress over ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I honor how far I have come and trust what lies ahead."
+    },
+    {
+      "name": "Ten of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Culmination, ultimate completion, and legacy regarding passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Burnout, heavy burdens, or painful endings in ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I celebrate full completion and release heavy burdens."
+    },
+    {
+      "name": "Page of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Curiosity, inspirational messages, and fresh ideas about passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Immaturity, procrastination, or bad news concerning ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I remain open to learning and fresh perspectives."
+    },
+    {
+      "name": "Knight of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Direct action, drive, and intense pursuit of goals in passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Impulsiveness, reckless speed, or complete inaction regarding ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I take purposeful, courageous action toward my targets."
+    },
+    {
+      "name": "Queen of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Nurturing mastery, emotional intelligence, and authority over passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Insecurity, coldness, or codependence in matters of ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I lead with intuition, grace, and grounded mastery."
+    },
+    {
+      "name": "King of Wands",
+      "category": "Minor Arcana",
+      "element": "Fire",
+      "zodiac": "Wands",
+      "upright": "Leadership, external mastery, and full control over passion, ambition, creation, willpower, and vital energy.",
+      "reversed": "Tyranny, manipulation, or ineffective management of ego conflicts, burnout, misdirected action, or creative blockage.",
+      "affirmation": "I exercise wise leadership and command my reality."
+    },
+    {
+      "name": "Ace of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "New raw potential and a powerful fresh beginning in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Delayed start or missed opportunity regarding emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I welcome new opportunities with enthusiasm."
+    },
+    {
+      "name": "Two of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Balance, partnership, and essential choices concerning emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Imbalance, indecision, or misaligned priorities in emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I make balanced decisions aligned with my truth."
+    },
+    {
+      "name": "Three of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Growth, teamwork, and early expansion in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Lack of progress, miscommunication, or delays in emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "Collaboration and vision fuel my ongoing growth."
+    },
+    {
+      "name": "Four of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Solid stability, security, and firm foundations in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Stagnation, rigidity, or fear of losing control over emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I rest securely upon the stable foundations I build."
+    },
+    {
+      "name": "Five of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Conflict, temporary challenge, or loss regarding emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Resolution, moving past hardship, and recovery in emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I grow stronger through every challenge I face."
+    },
+    {
+      "name": "Six of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Harmony, success, generosity, and progress in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Standing still, selfishness, or delayed recognition in emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I share my success and accept help when needed."
+    },
+    {
+      "name": "Seven of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Strategic planning, assessment, and perseverance in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Impatience, self-doubt, or deceptive shortcuts regarding emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "Patience and strategy guide my long-term effort."
+    },
+    {
+      "name": "Eight of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Mastery, focused movement, and rapid progress in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Frustration, lack of effort, or energetic delays in emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "My dedicated focus yields expertise and momentum."
+    },
+    {
+      "name": "Nine of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Fruitful realization, self-reliance, and near completion in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Defeat, dissatisfaction, fatigue, or stress over emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I honor how far I have come and trust what lies ahead."
+    },
+    {
+      "name": "Ten of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Culmination, ultimate completion, and legacy regarding emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Burnout, heavy burdens, or painful endings in emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I celebrate full completion and release heavy burdens."
+    },
+    {
+      "name": "Page of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Curiosity, inspirational messages, and fresh ideas about emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Immaturity, procrastination, or bad news concerning emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I remain open to learning and fresh perspectives."
+    },
+    {
+      "name": "Knight of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Direct action, drive, and intense pursuit of goals in emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Impulsiveness, reckless speed, or complete inaction regarding emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I take purposeful, courageous action toward my targets."
+    },
+    {
+      "name": "Queen of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Nurturing mastery, emotional intelligence, and authority over emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Insecurity, coldness, or codependence in matters of emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I lead with intuition, grace, and grounded mastery."
+    },
+    {
+      "name": "King of Cups",
+      "category": "Minor Arcana",
+      "element": "Water",
+      "zodiac": "Cups",
+      "upright": "Leadership, external mastery, and full control over emotional depth, relationships, intuition, and spiritual connection.",
+      "reversed": "Tyranny, manipulation, or ineffective management of emotional volatility, detachment, heartbreak, or moodiness.",
+      "affirmation": "I exercise wise leadership and command my reality."
+    },
+    {
+      "name": "Ace of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "New raw potential and a powerful fresh beginning in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Delayed start or missed opportunity regarding anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I welcome new opportunities with enthusiasm."
+    },
+    {
+      "name": "Two of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Balance, partnership, and essential choices concerning intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Imbalance, indecision, or misaligned priorities in anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I make balanced decisions aligned with my truth."
+    },
+    {
+      "name": "Three of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Growth, teamwork, and early expansion in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Lack of progress, miscommunication, or delays in anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "Collaboration and vision fuel my ongoing growth."
+    },
+    {
+      "name": "Four of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Solid stability, security, and firm foundations in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Stagnation, rigidity, or fear of losing control over anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I rest securely upon the stable foundations I build."
+    },
+    {
+      "name": "Five of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Conflict, temporary challenge, or loss regarding intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Resolution, moving past hardship, and recovery in anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I grow stronger through every challenge I face."
+    },
+    {
+      "name": "Six of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Harmony, success, generosity, and progress in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Standing still, selfishness, or delayed recognition in anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I share my success and accept help when needed."
+    },
+    {
+      "name": "Seven of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Strategic planning, assessment, and perseverance in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Impatience, self-doubt, or deceptive shortcuts regarding anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "Patience and strategy guide my long-term effort."
+    },
+    {
+      "name": "Eight of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Mastery, focused movement, and rapid progress in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Frustration, lack of effort, or energetic delays in anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "My dedicated focus yields expertise and momentum."
+    },
+    {
+      "name": "Nine of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Fruitful realization, self-reliance, and near completion in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Defeat, dissatisfaction, fatigue, or stress over anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I honor how far I have come and trust what lies ahead."
+    },
+    {
+      "name": "Ten of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Culmination, ultimate completion, and legacy regarding intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Burnout, heavy burdens, or painful endings in anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I celebrate full completion and release heavy burdens."
+    },
+    {
+      "name": "Page of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Curiosity, inspirational messages, and fresh ideas about intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Immaturity, procrastination, or bad news concerning anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I remain open to learning and fresh perspectives."
+    },
+    {
+      "name": "Knight of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Direct action, drive, and intense pursuit of goals in intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Impulsiveness, reckless speed, or complete inaction regarding anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I take purposeful, courageous action toward my targets."
+    },
+    {
+      "name": "Queen of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Nurturing mastery, emotional intelligence, and authority over intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Insecurity, coldness, or codependence in matters of anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I lead with intuition, grace, and grounded mastery."
+    },
+    {
+      "name": "King of Swords",
+      "category": "Minor Arcana",
+      "element": "Air",
+      "zodiac": "Swords",
+      "upright": "Leadership, external mastery, and full control over intellect, clear truth, communication, and decisive mental action.",
+      "reversed": "Tyranny, manipulation, or ineffective management of anxiety, overthinking, harsh words, deceit, or mental overload.",
+      "affirmation": "I exercise wise leadership and command my reality."
+    },
+    {
+      "name": "Ace of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "New raw potential and a powerful fresh beginning in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Delayed start or missed opportunity regarding financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I welcome new opportunities with enthusiasm."
+    },
+    {
+      "name": "Two of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Balance, partnership, and essential choices concerning material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Imbalance, indecision, or misaligned priorities in financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I make balanced decisions aligned with my truth."
+    },
+    {
+      "name": "Three of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Growth, teamwork, and early expansion in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Lack of progress, miscommunication, or delays in financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "Collaboration and vision fuel my ongoing growth."
+    },
+    {
+      "name": "Four of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Solid stability, security, and firm foundations in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Stagnation, rigidity, or fear of losing control over financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I rest securely upon the stable foundations I build."
+    },
+    {
+      "name": "Five of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Conflict, temporary challenge, or loss regarding material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Resolution, moving past hardship, and recovery in financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I grow stronger through every challenge I face."
+    },
+    {
+      "name": "Six of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Harmony, success, generosity, and progress in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Standing still, selfishness, or delayed recognition in financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I share my success and accept help when needed."
+    },
+    {
+      "name": "Seven of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Strategic planning, assessment, and perseverance in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Impatience, self-doubt, or deceptive shortcuts regarding financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "Patience and strategy guide my long-term effort."
+    },
+    {
+      "name": "Eight of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Mastery, focused movement, and rapid progress in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Frustration, lack of effort, or energetic delays in financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "My dedicated focus yields expertise and momentum."
+    },
+    {
+      "name": "Nine of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Fruitful realization, self-reliance, and near completion in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Defeat, dissatisfaction, fatigue, or stress over financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I honor how far I have come and trust what lies ahead."
+    },
+    {
+      "name": "Ten of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Culmination, ultimate completion, and legacy regarding material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Burnout, heavy burdens, or painful endings in financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I celebrate full completion and release heavy burdens."
+    },
+    {
+      "name": "Page of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Curiosity, inspirational messages, and fresh ideas about material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Immaturity, procrastination, or bad news concerning financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I remain open to learning and fresh perspectives."
+    },
+    {
+      "name": "Knight of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Direct action, drive, and intense pursuit of goals in material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Impulsiveness, reckless speed, or complete inaction regarding financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I take purposeful, courageous action toward my targets."
+    },
+    {
+      "name": "Queen of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Nurturing mastery, emotional intelligence, and authority over material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Insecurity, coldness, or codependence in matters of financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I lead with intuition, grace, and grounded mastery."
+    },
+    {
+      "name": "King of Pentacles",
+      "category": "Minor Arcana",
+      "element": "Earth",
+      "zodiac": "Pentacles",
+      "upright": "Leadership, external mastery, and full control over material abundance, practical physical results, wealth, and stability.",
+      "reversed": "Tyranny, manipulation, or ineffective management of financial stress, insecurity, neglect of physical health, or greed.",
+      "affirmation": "I exercise wise leadership and command my reality."
+    }
+  ]
+}
