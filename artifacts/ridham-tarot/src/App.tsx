@@ -101,15 +101,25 @@ function BrandHeader({ privateArea = false }: { privateArea?: boolean }) {
         <img src="/oracle-artwork.png" alt="Ridham’s oracle portrait" data-testid="img-header-brand" />
         <span>Ridham’s Mystic Oracle</span>
       </Link>
-      <nav className="header-links" aria-label="Main navigation">
-        <Link href="/" data-testid="link-reader">The reading</Link>
+      <nav className="header-links" aria-label="Switch between the seeker and developer interfaces">
+        <Link href="/" data-testid="link-reader">
+          <span className="nav-desktop">Seeker interface</span>
+          <span className="nav-mobile">Seeker</span>
+        </Link>
         {privateArea ? (
           <>
-            <Link href="/developer" data-testid="link-dashboard">Journal</Link>
+            <Link href="/developer" data-testid="link-dashboard">
+              <span className="nav-desktop">Ridham Kapoor · Developer</span>
+              <span className="nav-mobile">Developer</span>
+            </Link>
             {isSignedIn && <button className="text-link" onClick={() => signOut({ redirectUrl: basePath || '/' })} data-testid="button-sign-out">Sign out</button>}
           </>
         ) : (
-          <Link href="/developer" data-testid="link-private-journal">Private journal <LockKeyhole size={12} /></Link>
+          <Link href="/developer" data-testid="link-private-journal">
+            <span className="nav-desktop">Ridham Kapoor · Developer</span>
+            <span className="nav-mobile">Developer</span>
+            <LockKeyhole size={12} />
+          </Link>
         )}
       </nav>
     </header>
@@ -185,6 +195,25 @@ function HomePage() {
         <div className="hero-art">
           <img src="/oracle-artwork.png" alt="Ridham’s Mystic Tarot Oracle surrounded by illuminated tarot cards" data-testid="img-oracle-artwork" />
           <div className="art-note">A personal reading · 78-card deck</div>
+        </div>
+      </section>
+      <section className="oracle-gallery" aria-labelledby="gallery-title">
+        <div className="gallery-heading">
+          <div>
+            <div className="eyebrow">The oracle in two visions</div>
+            <h2 id="gallery-title">Between shadow and starlight</h2>
+          </div>
+          <p>Step into a world of luminous cards, quiet symbols, and the wisdom between them.</p>
+        </div>
+        <div className="gallery-grid">
+          <figure className="gallery-card">
+            <img src="/oracle-artwork-2.png" alt="A radiant tarot seer surrounded by glowing cards and violet starlight" loading="lazy" />
+            <figcaption><span>01 / The starlit seer</span><small>Intuition · Wonder · Possibility</small></figcaption>
+          </figure>
+          <figure className="gallery-card gallery-card-deep">
+            <img src="/oracle-artwork-3.png" alt="A mysterious oracle holding illuminated tarot cards beneath a dark celestial arch" loading="lazy" />
+            <figcaption><span>02 / The keeper of symbols</span><small>Stillness · Reflection · Insight</small></figcaption>
+          </figure>
         </div>
       </section>
       <section className="reader-wrap" id="begin">
@@ -346,7 +375,7 @@ function DeveloperDashboard() {
     <main className="dev-shell">
       <BrandHeader privateArea />
       <div className="dev-main">
-        <div className="dev-heading"><div><div className="eyebrow">Private workspace</div><h1>The reading journal</h1></div><p>Saved readings, returned to in confidence. Only approved accounts can open this private archive.</p></div>
+        <div className="dev-heading"><div><div className="eyebrow">Ridham Kapoor · Developer workspace</div><h1>The reading journal</h1></div><p>Saved readings, returned to in confidence. Only approved accounts can open this private archive.</p></div>
         <div className="stat-grid" aria-label="Reading statistics">
           {[
             ['Readings kept', summary?.totalReadings],
