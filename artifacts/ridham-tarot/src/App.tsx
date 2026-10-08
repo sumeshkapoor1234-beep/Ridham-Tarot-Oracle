@@ -14,7 +14,7 @@ import {
   useListReadings,
 } from '@workspace/api-client-react';
 import type { Reading, ReadingInput } from '@workspace/api-client-react';
-import { ArrowLeft, ArrowRight, CircleAlert, Copy, LockKeyhole, Mail, Moon, RotateCcw } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CircleAlert, Copy, Download, LockKeyhole, Mail, Moon, RotateCcw } from 'lucide-react';
 import {
   Link,
   Redirect,
@@ -102,6 +102,7 @@ function BrandHeader({ privateArea = false }: { privateArea?: boolean }) {
         <span>Ridham’s Mystic Oracle</span>
       </Link>
       <nav className="header-links" aria-label="Switch between the seeker and developer interfaces">
+        {!privateArea && <InstallAppControl />}
         <Link href="/" data-testid="link-reader">
           <span className="nav-desktop">Seeker interface</span>
           <span className="nav-mobile">Seeker</span>
@@ -123,6 +124,99 @@ function BrandHeader({ privateArea = false }: { privateArea?: boolean }) {
         )}
       </nav>
     </header>
+  );
+}
+
+type InstallPromptEvent = Event & {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+};
+
+function InstallAppControl() {
+  const [installPrompt, setInstallPrompt] = useState<InstallPromptEvent | null>(null);
+  const [isInstalled, setIsInstalled] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
+
+  useEffect(() => {
+    const standaloneNavigator = navigator as Navigator & { standalone?: boolean };
+    setIsInstalled(
+      window.matchMedia('(display-mode: standalone)').matches ||
+      Boolean(standaloneNavigator.standalone),
+    );
+
+    const handleInstallAvailable = (event: Event) => {
+      event.preventDefault();
+      setInstallPrompt(event as InstallPromptEvent);
+    };
+    const handleInstalled = () => {
+      setIsInstalled(true);
+      setInstallPrompt(null);
+      setShowHelp(false);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleInstallAvailable);
+    window.addEventListener('appinstalled', handleInstalled);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleInstallAvailable);
+      window.removeEventListener('appinstalled', handleInstalled);
+    };
+  }, []);
+
+  const handleClick = async () => {
+    if (!installPrompt) {
+      setShowHelp((previous) => !previous);
+      return;
+    }
+
+    try {
+      await installPrompt.prompt();
+      const choice = await installPrompt.userChoice;
+      if (choice.outcome === 'accepted') setIsInstalled(true);
+    } finally {
+      setInstallPrompt(null);
+    }
+  };
+
+  return (
+    <div className="install-control">
+      <button
+        className="install-app-button"
+        type="button"
+        onClick={handleClick}
+        aria-expanded={showHelp}
+        data-testid="button-install-app"
+      >
+        <Download size={13} />
+        <span>{isInstalled ? 'App installed' : 'Install app'}</span>
+      </button>
+      {showHelp && !isInstalled && (
+        <div className="install-help" role="status" data-testid="status-install-help">
+          <strong>Add Mystic Tarot to your home screen</strong>
+          <p>On iPhone or iPad, tap Share, then “Add to Home Screen.” On Android or desktop, choose “Install app” or “Add to Home screen” from your browser menu.</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function OfflineNotice() {
+  const [isOnline, setIsOnline] = useState(() => navigator.onLine);
+
+  useEffect(() => {
+    const updateOnlineStatus = () => setIsOnline(navigator.onLine);
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    return () => {
+      window.removeEventListener('online', updateOnlineStatus);
+      window.removeEventListener('offline', updateOnlineStatus);
+    };
+  }, []);
+
+  if (isOnline) return null;
+  return (
+    <div className="offline-notice" role="status" data-testid="status-offline">
+      Offline mode · Previously loaded deck details may be available; saving readings and opening the private journal need an internet connection.
+    </div>
   );
 }
 
@@ -188,6 +282,7 @@ function HomePage() {
   return (
     <main className="oracle-page">
       <BrandHeader />
+      <OfflineNotice />
       <section className="hero">
         <div className="hero-copy">
           <div className="eyebrow">A moment with the cards</div>
