@@ -195,6 +195,10 @@ components:
         question:
           type: string
           maxLength: 1000
+        readerEmail:
+          type: string
+          format: email
+          maxLength: 254
         spreadId:
           type: string
           enum: ["1", "2", "3", "4", "5"]
@@ -259,6 +263,9 @@ components:
           type: string
         question:
           type: string
+        readerEmail:
+          type: ["string", "null"]
+          format: email
         spreadId:
           type: string
         spreadName:
@@ -283,6 +290,7 @@ components:
         - id
         - querentName
         - question
+        - readerEmail
         - spreadId
         - spreadName
         - drawMode

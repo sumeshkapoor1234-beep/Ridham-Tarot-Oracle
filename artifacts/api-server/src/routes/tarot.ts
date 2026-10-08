@@ -118,6 +118,7 @@ router.post("/readings", async (req, res): Promise<void> => {
     .values({
       querentName: input.querentName.trim(),
       question: input.question.trim(),
+      readerEmail: input.readerEmail?.trim().toLowerCase() || null,
       spreadId: spread.id,
       spreadName: spread.name,
       drawMode: input.drawMode,

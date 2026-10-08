@@ -86,6 +86,8 @@ export interface ReadingInput {
   querentName: string;
   /** @maxLength 1000 */
   question: string;
+  /** @maxLength 254 */
+  readerEmail?: string;
   spreadId: ReadingInputSpreadId;
   drawMode: ReadingInputDrawMode;
   selectedCards?: string[];
@@ -147,6 +149,8 @@ export interface Reading {
   id: string;
   querentName: string;
   question: string;
+  /** @nullable */
+  readerEmail: string | null;
   spreadId: string;
   spreadName: string;
   drawMode: ReadingDrawMode;

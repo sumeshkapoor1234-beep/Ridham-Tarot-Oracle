@@ -13,6 +13,8 @@ export interface Reading {
   id: string;
   querentName: string;
   question: string;
+  /** @nullable */
+  readerEmail: string | null;
   spreadId: string;
   spreadName: string;
   drawMode: ReadingDrawMode;

@@ -29,6 +29,7 @@ export const readingsTable = pgTable("tarot_readings", {
   id: uuid("id").primaryKey().defaultRandom(),
   querentName: text("querent_name").notNull(),
   question: text("question").notNull().default(""),
+  readerEmail: text("reader_email"),
   spreadId: text("spread_id").notNull(),
   spreadName: text("spread_name").notNull(),
   drawMode: text("draw_mode").notNull(),

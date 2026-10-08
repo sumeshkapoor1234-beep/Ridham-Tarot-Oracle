@@ -14,7 +14,7 @@ import {
   useListReadings,
 } from '@workspace/api-client-react';
 import type { Reading, ReadingInput } from '@workspace/api-client-react';
-import { ArrowLeft, ArrowRight, CircleAlert, LockKeyhole, Moon, RotateCcw } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CircleAlert, Copy, LockKeyhole, Mail, Moon, RotateCcw } from 'lucide-react';
 import {
   Link,
   Redirect,
@@ -131,6 +131,7 @@ function HomePage() {
   const createReading = useCreateReading({ request: { credentials: 'include' } });
   const queryClient = useQueryClient();
   const [name, setName] = useState('');
+  const [readerEmail, setReaderEmail] = useState('');
   const [question, setQuestion] = useState('');
   const [spreadId, setSpreadId] = useState('1');
   const [drawMode, setDrawMode] = useState<'automatic' | 'manual'>('automatic');
@@ -160,6 +161,7 @@ function HomePage() {
     const payload: ReadingInput = {
       querentName: name.trim(),
       question: question.trim(),
+      ...(readerEmail.trim() ? { readerEmail: readerEmail.trim() } : {}),
       spreadId: spreadId as ReadingInput['spreadId'],
       drawMode,
       ...(drawMode === 'manual' ? { selectedCards } : {}),
@@ -233,6 +235,11 @@ function HomePage() {
               <textarea id="reading-question" value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="A question, a crossroads, or leave this open…" maxLength={1000} data-testid="input-reading-question" />
             </div>
             <div className="field">
+              <label htmlFor="reader-email">Email for a copy (optional)</label>
+              <input id="reader-email" type="email" autoComplete="email" value={readerEmail} onChange={(event) => setReaderEmail(event.target.value)} placeholder="you@example.com" maxLength={254} data-testid="input-reader-email" />
+              <small className="field-note">Only add this if you’d like Ridham to prepare a reading copy for you.</small>
+            </div>
+            <div className="field">
               <label>Choose a spread</label>
               {configQuery.isLoading ? (
                 <div className="spread-list" aria-label="Loading spreads">{[1, 2, 3, 4].map((item) => <div key={item} className="skeleton" style={{ height: 74 }} />)}</div>
@@ -261,16 +268,29 @@ function HomePage() {
             </div>
             {drawMode === 'manual' && positions.length > 0 && (
               <div className="manual-selects">
-                <p>Select one distinct card for every position in your spread.</p>
-                {positions.map((position, index) => (
-                  <div className="field" key={`${position}-${index}`}>
-                    <label htmlFor={`manual-card-${index}`}>{position}</label>
-                    <select id={`manual-card-${index}`} value={selectedCards[index] ?? ''} onChange={(event) => chooseCard(index, event.target.value)} data-testid={`select-card-${index}`}>
-                      <option value="">Choose from the deck…</option>
-                      {visibleManualCards.map((card) => <option key={card.name} value={card.name} disabled={selectedCards.some((selection, selectedIndex) => selectedIndex !== index && selection === card.name)}>{card.name} · {card.category}</option>)}
-                    </select>
-                  </div>
-                ))}
+                <p>Choose one distinct card for each position. After selecting, review its identity and both interpretations before drawing.</p>
+                {positions.map((position, index) => {
+                  const selectedCard = visibleManualCards.find((card) => card.name === selectedCards[index]);
+                  return (
+                    <div className="field manual-card-field" key={`${position}-${index}`}>
+                      <label htmlFor={`manual-card-${index}`}>{position}</label>
+                      <select id={`manual-card-${index}`} value={selectedCards[index] ?? ''} onChange={(event) => chooseCard(index, event.target.value)} data-testid={`select-card-${index}`}>
+                        <option value="">Choose from the deck…</option>
+                        {visibleManualCards.map((card) => <option key={card.name} value={card.name} disabled={selectedCards.some((selection, selectedIndex) => selectedIndex !== index && selection === card.name)}>{card.name} · {card.category} · {card.element}</option>)}
+                      </select>
+                      {selectedCard && (
+                        <article className="selected-card-preview" data-testid={`card-choice-preview-${index}`}>
+                          <div className="selected-card-heading">
+                            <span className="selected-card-mark" aria-hidden="true">✦</span>
+                            <div><strong>{selectedCard.name}</strong><small>{selectedCard.category} · {selectedCard.element} · {selectedCard.zodiac}</small></div>
+                          </div>
+                          <p><b>Upright</b>{selectedCard.upright}</p>
+                          <p><b>Reversed</b>{selectedCard.reversed}</p>
+                        </article>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             )}
             {formError && <div className="form-error" role="alert" data-testid="status-reading-error">{formError}</div>}
@@ -444,11 +464,72 @@ function ProtectedReadingDetail() {
             <h1 style={{ font: '48px/.98 var(--app-font-serif)', color: '#292d48', margin: '12px 0 0' }}>{readingQuery.data.querentName}</h1>
             <p className="reading-question">{readingQuery.data.question ? `“${readingQuery.data.question}”` : 'A general reading'}</p>
             <div className="detail-meta"><span>{readingQuery.data.spreadName}</span><span>{new Date(readingQuery.data.createdAt).toLocaleString()}</span><span>{readingQuery.data.cards.length} cards</span></div>
+            <ReadingDelivery reading={readingQuery.data} />
             <ReadingResult reading={readingQuery.data} onReset={() => {}} />
           </article>
         ) : null}
       </div>
     </main>
+  );
+}
+
+function readingCopyText(reading: Reading) {
+  const cards = reading.cards.map((card) =>
+    `${card.position}\n${card.cardName} · ${card.orientation} · ${card.category}\n${card.interpretation}\nAffirmation: ${card.affirmation}`,
+  ).join('\n\n');
+  return [
+    `A tarot reading for ${reading.querentName}`,
+    `Spread: ${reading.spreadName}`,
+    `Question: ${reading.question || 'An open reading'}`,
+    `Date: ${new Date(reading.createdAt).toLocaleString()}`,
+    '',
+    cards,
+    '',
+    'May this reading be a quiet mirror for your own reflection. Wisdom is a mirror, not a verdict.',
+    '— Ridham Kapoor',
+  ].join('\n');
+}
+
+function ReadingDelivery({ reading }: { reading: Reading }) {
+  const [copyStatus, setCopyStatus] = useState('');
+  if (!reading.readerEmail) {
+    return (
+      <div className="send-reading-panel" data-testid="status-no-reader-email">
+        <div><strong>No email address was provided</strong><p>The reader can include one next time if they want a copy.</p></div>
+      </div>
+    );
+  }
+
+  const subject = `Your ${reading.spreadName} tarot reading`;
+  const body = readingCopyText(reading);
+  const emailDraft = `mailto:${encodeURIComponent(reading.readerEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  const copyReading = async () => {
+    try {
+      await navigator.clipboard.writeText(`${subject}\n\n${body}`);
+      setCopyStatus('Reading copied. Paste it into an email to send.');
+    } catch {
+      setCopyStatus('Could not copy automatically. Select and copy the reading text below.');
+    }
+  };
+
+  return (
+    <section className="send-reading-panel" aria-label="Send a copy to the reader" data-testid="section-send-reading">
+      <div className="send-reading-copy">
+        <div className="panel-kicker">Send a copy</div>
+        <strong>{reading.readerEmail}</strong>
+        <p>Prepare an email in your mail app, or copy the full reading to send it another way.</p>
+      </div>
+      <div className="send-reading-actions">
+        <a className="send-reading-button" href={emailDraft} data-testid="link-email-reading"><Mail size={15} /> Open email draft</a>
+        <button className="copy-reading-button" type="button" onClick={copyReading} data-testid="button-copy-reading"><Copy size={14} /> Copy reading</button>
+      </div>
+      {copyStatus && <p className="copy-reading-status" role="status" data-testid="status-copy-reading">{copyStatus}</p>}
+      <details className="email-copy-preview">
+        <summary>Preview the message</summary>
+        <pre>{`${subject}\n\n${body}`}</pre>
+      </details>
+    </section>
   );
 }
 

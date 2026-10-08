@@ -45,11 +45,14 @@ export const createReadingBodyQuerentNameMax = 100;
 
 export const createReadingBodyQuestionMax = 1000;
 
+export const createReadingBodyReaderEmailMax = 254;
+
 
 
 export const CreateReadingBody = zod.object({
   "querentName": zod.string().min(1).max(createReadingBodyQuerentNameMax),
   "question": zod.string().max(createReadingBodyQuestionMax),
+  "readerEmail": zod.string().email().max(createReadingBodyReaderEmailMax).optional(),
   "spreadId": zod.enum(['1', '2', '3', '4', '5']),
   "drawMode": zod.enum(['automatic', 'manual']),
   "selectedCards": zod.array(zod.string()).optional()
@@ -59,6 +62,7 @@ export const CreateReadingResponse = zod.object({
   "id": zod.string().uuid(),
   "querentName": zod.string(),
   "question": zod.string(),
+  "readerEmail": zod.string().email().nullable(),
   "spreadId": zod.string(),
   "spreadName": zod.string(),
   "drawMode": zod.enum(['automatic', 'manual']),
@@ -103,6 +107,7 @@ export const ListReadingsResponseItem = zod.object({
   "id": zod.string().uuid(),
   "querentName": zod.string(),
   "question": zod.string(),
+  "readerEmail": zod.string().email().nullable(),
   "spreadId": zod.string(),
   "spreadName": zod.string(),
   "drawMode": zod.enum(['automatic', 'manual']),
@@ -152,6 +157,7 @@ export const GetReadingResponse = zod.object({
   "id": zod.string().uuid(),
   "querentName": zod.string(),
   "question": zod.string(),
+  "readerEmail": zod.string().email().nullable(),
   "spreadId": zod.string(),
   "spreadName": zod.string(),
   "drawMode": zod.enum(['automatic', 'manual']),

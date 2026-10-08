@@ -16,6 +16,8 @@ export interface ReadingInput {
   querentName: string;
   /** @maxLength 1000 */
   question: string;
+  /** @maxLength 254 */
+  readerEmail?: string;
   spreadId: ReadingInputSpreadId;
   drawMode: ReadingInputDrawMode;
   selectedCards?: string[];
